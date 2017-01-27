@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by florentchampigny on 24/04/15.
+ * Created by naman on 24/01/17.
  */
 public class RecyclerViewFragment extends Fragment {
 
@@ -23,7 +23,7 @@ public class RecyclerViewFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-    private List<Object> mContentItems = new ArrayList<>();
+    private List<EventObject> mContentItems = new ArrayList<>();
 
     public static RecyclerViewFragment newInstance() {
         return new RecyclerViewFragment();
@@ -56,7 +56,7 @@ public class RecyclerViewFragment extends Fragment {
 
         {
             for (int i = 0; i < 10; i++) {
-                mContentItems.add(new Object());
+                mContentItems.add(new EventObject("Code Explod","Coding Challenge","CC-04",R.drawable.coding));
             }
             mAdapter.notifyDataSetChanged();
         }

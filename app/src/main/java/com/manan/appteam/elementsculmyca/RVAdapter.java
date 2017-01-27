@@ -38,12 +38,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.DataViewHolder> {
         }
     }
 
-    ArrayList<DataObject> dataObjects;
-
-    RVAdapter(ArrayList<DataObject> dataObjects){
-        this.dataObjects = dataObjects;
-    }
-
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
