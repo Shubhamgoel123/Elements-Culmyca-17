@@ -50,7 +50,6 @@ public class RecyclerViewFragment extends Fragment {
 
         mAdapter = new TestRecyclerViewAdapter(mContentItems);
 
-        //mAdapter = new RecyclerViewMaterialAdapter();
         mRecyclerView.setAdapter(mAdapter);
 
           int n=10;

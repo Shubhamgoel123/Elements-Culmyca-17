@@ -85,7 +85,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/cashier" />
+                android:src="@drawable/calicon" />
 
             <TextView
                 android:id="@+id/day2"
@@ -106,7 +106,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/coding" />
+                android:src="@drawable/calicon"/>
 
             <TextView
                 android:id="@+id/day3"

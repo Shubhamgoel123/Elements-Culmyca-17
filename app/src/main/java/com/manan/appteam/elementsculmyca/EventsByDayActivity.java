@@ -61,7 +61,7 @@ public class EventsByDayActivity extends AppCompatActivity {
                 switch (page) {
                     case 0:
                         return HeaderDesign.fromColorResAndUrl(
-                                R.color.blue,
+                                R.color.pink,
                                 "http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2014/06/wallpaper_51.jpg");
                     case 1:
                         return HeaderDesign.fromColorResAndUrl(

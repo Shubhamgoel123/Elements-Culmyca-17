@@ -1,5 +1,8 @@
 package com.manan.appteam.elementsculmyca;
 
+import android.content.Intent;
+import android.support.annotation.IntRange;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
+
+import static android.os.Build.VERSION_CODES.M;
+import static java.security.AccessController.getContext;
 
 /**
  * Created by naman on 26/01/17.
@@ -79,6 +85,8 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<TestRecyclerVi
             public void onClick(View v) {
               // Click Listener TODO
                 Toast.makeText(v.getContext(),"Hello",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(v.getContext(),EventDetailActivity.class);
+                v.getContext().startActivity(i);
             }
         });
     }

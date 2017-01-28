@@ -29,7 +29,6 @@ dependencies {
     compile('com.github.florent37:materialviewpager:1.2.0@aar') {
         transitive = true
     }
-
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:support-v4:25.1.0'
     compile 'com.android.support:design:25.1.0'
@@ -39,4 +38,5 @@ dependencies {
     compile 'com.tiancaicc.springfloatingactionmenu:library:0.0.2'
     compile 'com.google.android.gms:play-services-gcm:10.0.1'
     testCompile 'junit:junit:4.12'
+    compile 'com.android.support:percent:24.2.1'
 }
