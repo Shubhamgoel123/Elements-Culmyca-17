@@ -8,12 +8,6 @@
     android:background="@color/bg_color"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:popupTheme="@style/AppTheme" />
-
     <com.synnapps.carouselview.CarouselView
         android:id="@+id/carouselView"
         android:layout_width="match_parent"
@@ -91,7 +85,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/calicon" />
+                android:src="@drawable/cashier" />
 
             <TextView
                 android:id="@+id/day2"
@@ -112,7 +106,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/calicon" />
+                android:src="@drawable/coding" />
 
             <TextView
                 android:id="@+id/day3"

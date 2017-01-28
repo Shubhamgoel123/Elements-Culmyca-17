@@ -1,70 +1,85 @@
 package com.manan.appteam.elementsculmyca;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 /**
- * Created by florentchampigny on 24/04/15.
+ * Created by naman on 26/01/17.
  */
-public class TestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class TestRecyclerViewAdapter extends RecyclerView.Adapter<TestRecyclerViewAdapter.DataViewHolder> {
 
-    List<Object> contents;
+    List<EventObject> contents;
 
-    static final int TYPE_HEADER = 0;
+
     static final int TYPE_CELL = 1;
 
-    public TestRecyclerViewAdapter(List<Object> contents) {
+    public TestRecyclerViewAdapter(List<EventObject> contents) {
         this.contents = contents;
     }
 
-    @Override
+
+    public class DataViewHolder extends RecyclerView.ViewHolder {
+        CardView cv;
+        TextView eventName;
+        TextView eventSubtitle;
+        TextView eventLocation;
+        ImageView eventIcon;
+
+        DataViewHolder(View itemView) {
+            super(itemView);
+            cv = (CardView) itemView.findViewById(R.id.card_view);
+            eventName = (TextView) itemView.findViewById(R.id.event_name);
+            eventLocation = (TextView) itemView.findViewById(R.id.event_location);
+            eventIcon = (ImageView) itemView.findViewById(R.id.event_icon);
+
+        }
+    }
+
+        @Override
     public int getItemViewType(int position) {
-        switch (position) {
-            case 0:
-                return TYPE_HEADER;
-            default:
+
                 return TYPE_CELL;
+
+    }
+
+
+
+        @Override
+        public int getItemCount() {
+            return contents.size();
         }
-    }
 
-    @Override
-    public int getItemCount() {
-        return contents.size();
-    }
+        @Override
+        public DataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view;
+                    view = LayoutInflater.from(parent.getContext())
+                            .inflate(R.layout.list_item_card_small, parent, false);
+                    return new DataViewHolder(view) ;
 
-    @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = null;
-
-        switch (viewType) {
-            case TYPE_HEADER: {
-                view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.list_item_card_small, parent, false);
-                return new RecyclerView.ViewHolder(view) {
-                };
             }
-            case TYPE_CELL: {
-                view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.list_item_card_small, parent, false);
-                return new RecyclerView.ViewHolder(view) {
-                };
-            }
-        }
-        return null;
-    }
-
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        switch (getItemViewType(position)) {
-            case TYPE_HEADER:
-                break;
-            case TYPE_CELL:
-                break;
-        }
+    public void onBindViewHolder(DataViewHolder holder, int position) {
+
+        EventObject eventObject = contents.get(position);
+        holder.eventName.setText(eventObject.getEventName());
+        holder.eventLocation.setText(eventObject.getLocation());
+        holder.eventIcon.setImageResource(eventObject.getImageResourceId());
+
+        holder.cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              // Click Listener TODO
+                Toast.makeText(v.getContext(),"Hello",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

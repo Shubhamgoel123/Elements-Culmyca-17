@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.melnykov.fab.FloatingActionButton;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
@@ -28,7 +29,7 @@ import java.util.List;
  * Created by naman on 1/22/2017.
  */
 
-public class MainActivity  extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     CarouselView carouselView;
     private List<DataObject> listItems;
@@ -69,10 +70,11 @@ public class MainActivity  extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AppTheme1);
         setContentView(R.layout.activity_main);
 
 
-        recyclerView=(RecyclerView)findViewById(R.id.rv);
+        recyclerView = (RecyclerView) findViewById(R.id.rv);
 
         createFabFrameAnim();
         createFabReverseFrameAnim();
@@ -87,11 +89,11 @@ public class MainActivity  extends AppCompatActivity implements View.OnClickList
 
         springFloatingActionMenu = new SpringFloatingActionMenu.Builder(this)
                 .fab(fab)
-                .addMenuItem(R.color.photo, R.mipmap.ic_messaging_posttype_photo, "About" , R.color.text_color,this)
-                .addMenuItem(R.color.chat, R.mipmap.ic_messaging_posttype_chat, "Location", R.color.text_color,this)
-                .addMenuItem(R.color.quote, R.mipmap.ic_messaging_posttype_quote, "Days", R.color.text_color,this)
-                .addMenuItem(R.color.link, R.mipmap.ic_messaging_posttype_link, "Developers", R.color.text_color,this)
-                .addMenuItem(R.color.audio, R.mipmap.ic_messaging_posttype_audio, "Sponsors", R.color.text_color,this)
+                .addMenuItem(R.color.photo, R.mipmap.ic_messaging_posttype_photo, "About", R.color.text_color, this)
+                .addMenuItem(R.color.chat, R.mipmap.ic_messaging_posttype_chat, "Location", R.color.text_color, this)
+                .addMenuItem(R.color.quote, R.mipmap.ic_messaging_posttype_quote, "Days", R.color.text_color, this)
+                .addMenuItem(R.color.link, R.mipmap.ic_messaging_posttype_link, "Developers", R.color.text_color, this)
+                .addMenuItem(R.color.audio, R.mipmap.ic_messaging_posttype_audio, "Sponsors", R.color.text_color, this)
                 .animationType(SpringFloatingActionMenu.ANIMATION_TYPE_TUMBLR)
                 .revealColor(R.color.colorPrimary)
                 .gravity(Gravity.RIGHT | Gravity.BOTTOM)
@@ -111,11 +113,6 @@ public class MainActivity  extends AppCompatActivity implements View.OnClickList
                     }
                 })
                 .build();
-
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
-        setTitle("Elements Culmyca");
-
         carouselView = (CarouselView) findViewById(R.id.carouselView);
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(imageListener);
@@ -123,17 +120,17 @@ public class MainActivity  extends AppCompatActivity implements View.OnClickList
         // CardView
 
         recyclerView.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
         listItems = new ArrayList<>();
 
-        for (int i=0;i<10;i++) {
-            DataObject listItem = new DataObject("Category Name" + i,R.drawable.cashier);       //Data Addition
+        for (int i = 0; i < 10; i++) {
+            DataObject listItem = new DataObject("Category Name" + i, R.drawable.cashier);              //Data Addition TODO
             listItems.add(listItem);
         }
 
-        adapter = new RVAdapter(listItems,this);
+        adapter = new RVAdapter(listItems, this);
         recyclerView.setAdapter(adapter);
 
 
@@ -141,7 +138,7 @@ public class MainActivity  extends AppCompatActivity implements View.OnClickList
         day1textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,EventsByDayActivity.class);
+                Intent i = new Intent(MainActivity.this, EventsByDayActivity.class);
                 startActivity(i);
                 //Position to be specified. TODO
             }
@@ -151,7 +148,7 @@ public class MainActivity  extends AppCompatActivity implements View.OnClickList
         day2textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,EventsByDayActivity.class);
+                Intent i = new Intent(MainActivity.this, EventsByDayActivity.class);
                 startActivity(i);
                 //Position to be specified. TODO
             }
@@ -161,7 +158,7 @@ public class MainActivity  extends AppCompatActivity implements View.OnClickList
         day3textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,EventsByDayActivity.class);
+                Intent i = new Intent(MainActivity.this, EventsByDayActivity.class);
                 startActivity(i);
                 //Position to be specified. TODO
             }
@@ -175,10 +172,6 @@ public class MainActivity  extends AppCompatActivity implements View.OnClickList
             imageView.setImageResource(sampleImages[position]);     //For carousel images
         }
     };
-
-
-
-
 
 
     private void createFabFrameAnim() {
@@ -201,20 +194,20 @@ public class MainActivity  extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onBackPressed() {
-        if(springFloatingActionMenu.isMenuOpen()){
+        if (springFloatingActionMenu.isMenuOpen()) {
             springFloatingActionMenu.hideMenu();
-        }else {
+        } else {
             super.onBackPressed();
         }
     }
 
     @Override
     public void onClick(View v) {
-        Log.d("TAG eg","onclick");
+        Log.d("TAG eg", "onclick");
         MenuItemView menuItemView = (MenuItemView) v;
-        Toast.makeText(this,menuItemView.getLabelTextView().getText(), Toast.LENGTH_SHORT).show();  //ClickListener
-
-        Intent i = new Intent(MainActivity.this,EventsByDayActivity.class);
+        //Toast.makeText(this, menuItemView.getLabelTextView().getText(), Toast.LENGTH_SHORT).show();  //ClickListener
+        springFloatingActionMenu.hideMenu();
+        Intent i = new Intent(MainActivity.this, EventsByDayActivity.class);
         startActivity(i);
 
     }

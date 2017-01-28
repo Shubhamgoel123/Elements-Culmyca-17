@@ -19,7 +19,6 @@ import java.util.List;
  */
 public class RecyclerViewFragment extends Fragment {
 
-    private  int items;
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -54,11 +53,12 @@ public class RecyclerViewFragment extends Fragment {
         //mAdapter = new RecyclerViewMaterialAdapter();
         mRecyclerView.setAdapter(mAdapter);
 
-        {
-            for (int i = 0; i < 10; i++) {
-                mContentItems.add(new EventObject("Code Explod","Coding Challenge","CC-04",R.drawable.coding));
+          int n=10;
+
+            for (int i = 0; i < n; i++) {
+                mContentItems.add(new EventObject("EC17-1","Code Xplod","Coding Challenge","","","","[]","CC-04",R.drawable.coding,",")); //TODO
             }
             mAdapter.notifyDataSetChanged();
-        }
+
     }
 }
