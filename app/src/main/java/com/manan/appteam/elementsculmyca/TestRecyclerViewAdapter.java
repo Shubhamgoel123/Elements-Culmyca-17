@@ -49,28 +49,27 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<TestRecyclerVi
         }
     }
 
-        @Override
+    @Override
     public int getItemViewType(int position) {
 
-                return TYPE_CELL;
+        return TYPE_CELL;
 
     }
 
 
+    @Override
+    public int getItemCount() {
+        return contents.size();
+    }
 
-        @Override
-        public int getItemCount() {
-            return contents.size();
-        }
+    @Override
+    public DataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view;
+        view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.list_item_card_small, parent, false);
+        return new DataViewHolder(view);
 
-        @Override
-        public DataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view;
-                    view = LayoutInflater.from(parent.getContext())
-                            .inflate(R.layout.list_item_card_small, parent, false);
-                    return new DataViewHolder(view) ;
-
-            }
+    }
 
     @Override
     public void onBindViewHolder(DataViewHolder holder, int position) {
@@ -83,9 +82,9 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<TestRecyclerVi
         holder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              // Click Listener TODO
-                Toast.makeText(v.getContext(),"Hello",Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(v.getContext(),EventDetailActivity.class);
+                // Click Listener TODO
+                Toast.makeText(v.getContext(), "Hello", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(v.getContext(), EventDetailActivity.class);
                 v.getContext().startActivity(i);
             }
         });

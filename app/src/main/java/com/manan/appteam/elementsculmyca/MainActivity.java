@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -65,12 +64,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AnimationDrawable frameReverseAnim;
 
 
-    int[] sampleImages = {R.drawable.administrator, R.drawable.cashier, R.drawable.drama, R.drawable.cook, R.drawable.coding};
+    int[] carouselImages = {R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4, R.drawable.img5, R.drawable.img6};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.AppTheme1);
+
         setContentView(R.layout.activity_main);
 
 
@@ -89,11 +88,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         springFloatingActionMenu = new SpringFloatingActionMenu.Builder(this)
                 .fab(fab)
-                .addMenuItem(R.color.photo, R.mipmap.ic_messaging_posttype_photo, "About", R.color.text_color, this)
-                .addMenuItem(R.color.chat, R.mipmap.ic_messaging_posttype_chat, "Location", R.color.text_color, this)
-                .addMenuItem(R.color.quote, R.mipmap.ic_messaging_posttype_quote, "Days", R.color.text_color, this)
-                .addMenuItem(R.color.link, R.mipmap.ic_messaging_posttype_link, "Developers", R.color.text_color, this)
-                .addMenuItem(R.color.audio, R.mipmap.ic_messaging_posttype_audio, "Sponsors", R.color.text_color, this)
+                .addMenuItem(R.color.photo, R.drawable.ic_visibility_black_24dp, "About", R.color.text_color, this)
+                .addMenuItem(R.color.chat, R.drawable.ic_place_black_24dp, "Location", R.color.text_color, this)
+                .addMenuItem(R.color.quote, R.drawable.ic_calendar, "Days", R.color.text_color, this)
+                .addMenuItem(R.color.link, R.drawable.ic_code_black_24dp, "Developers", R.color.text_color, this)
+                .addMenuItem(R.color.audio, R.drawable.ic_sponsorship, "Sponsors", R.color.text_color, this)
+                .addMenuItem(R.color.quote, R.drawable.ic_tickets, "My Tickets", R.color.text_color, this)
                 .animationType(SpringFloatingActionMenu.ANIMATION_TYPE_TUMBLR)
                 .revealColor(R.color.colorPrimary)
                 .gravity(Gravity.RIGHT | Gravity.BOTTOM)
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 })
                 .build();
         carouselView = (CarouselView) findViewById(R.id.carouselView);
-        carouselView.setPageCount(sampleImages.length);
+        carouselView.setPageCount(carouselImages.length);
         carouselView.setImageListener(imageListener);
 
         // CardView
@@ -123,12 +123,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+        //Data Addition to Cards on Main Page TODO
+
         listItems = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
-            DataObject listItem = new DataObject("Category Name" + i, R.drawable.cashier);              //Data Addition TODO
-            listItems.add(listItem);
-        }
+        listItems.add(new DataObject("Photography", R.drawable.photography_image));
+        listItems.add(new DataObject("Photography", R.drawable.photography_image));
+        listItems.add(new DataObject("Photography", R.drawable.photography_image));
+        listItems.add(new DataObject("Photography", R.drawable.photography_image));
+        listItems.add(new DataObject("Photography", R.drawable.photography_image));
+        listItems.add(new DataObject("Photography", R.drawable.photography_image));
+        listItems.add(new DataObject("Photography", R.drawable.photography_image));
+        listItems.add(new DataObject("Photography", R.drawable.photography_image));
+        listItems.add(new DataObject("Photography", R.drawable.photography_image));
 
         adapter = new RVAdapter(listItems, this);
         recyclerView.setAdapter(adapter);
@@ -139,6 +146,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, EventsByDayActivity.class);
+                i.putExtra("viewpager_position", 0);
                 startActivity(i);
                 //Position to be specified. TODO
             }
@@ -149,6 +157,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, EventsByDayActivity.class);
+                i.putExtra("viewpager_position", 1);
                 startActivity(i);
                 //Position to be specified. TODO
             }
@@ -159,6 +168,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, EventsByDayActivity.class);
+                i.putExtra("viewpager_position", 2);
                 startActivity(i);
                 //Position to be specified. TODO
             }
@@ -169,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageListener imageListener = new ImageListener() {
         @Override
         public void setImageForPosition(int position, ImageView imageView) {
-            imageView.setImageResource(sampleImages[position]);     //For carousel images
+            imageView.setImageResource(carouselImages[position]);     //For carousel images
         }
     };
 
@@ -205,10 +215,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         Log.d("TAG eg", "onclick");
         MenuItemView menuItemView = (MenuItemView) v;
-        //Toast.makeText(this, menuItemView.getLabelTextView().getText(), Toast.LENGTH_SHORT).show();  //ClickListener
+        if (menuItemView.getLabelTextView().getText() == "About") {
+            Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, AboutActivity.class);
+            startActivity(i);
+        } else if (menuItemView.getLabelTextView().getText() == "Location") {
+            Toast.makeText(this, "Location", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, MapsActivity.class);
+            startActivity(i);
+        } else if (menuItemView.getLabelTextView().getText() == "Developers")
+            Toast.makeText(this, "Developers", Toast.LENGTH_SHORT).show();
+        else if (menuItemView.getLabelTextView().getText() == "Sponsors")
+            Toast.makeText(this, "Sponsors", Toast.LENGTH_SHORT).show();
+        else if (menuItemView.getLabelTextView().getText() == "Days") {
+            Toast.makeText(this, "Days", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(MainActivity.this, EventsByDayActivity.class);
+            startActivity(i);
+        } else
+            Toast.makeText(this, "My Tickets", Toast.LENGTH_SHORT).show();
+
         springFloatingActionMenu.hideMenu();
-        Intent i = new Intent(MainActivity.this, EventsByDayActivity.class);
-        startActivity(i);
 
     }
 }

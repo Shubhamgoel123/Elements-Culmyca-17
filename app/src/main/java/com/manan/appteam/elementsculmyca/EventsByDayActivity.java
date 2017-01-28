@@ -1,4 +1,5 @@
 package com.manan.appteam.elementsculmyca;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v7.app.AppCompatActivity;
@@ -7,20 +8,33 @@ import android.support.v7.widget.Toolbar;
 import android.view.ActionMode;
 import android.view.View;
 import android.widget.Toast;
+
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 
 public class EventsByDayActivity extends AppCompatActivity {
     private MaterialViewPager mViewPager;
     private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setTheme(R.style.AppTheme1);
         setContentView(R.layout.activity_events_by_day);
+
+//        int position = 1;
+//        Bundle extras = getIntent().getExtras();
+//        if(extras != null) {
+//            position = extras.getInt("viewpager_position");
+//        }
+//
+//        mViewPager.getViewPager().setCurrentItem(position);
+
+
         setTitle("");
 
         mViewPager = (MaterialViewPager) findViewById(R.id.materialViewPager);
+
 
         toolbar = mViewPager.getToolbar();
 
@@ -33,7 +47,7 @@ public class EventsByDayActivity extends AppCompatActivity {
             @Override
             public Fragment getItem(int position) {
 
-                        return RecyclerViewFragment.newInstance();
+                return RecyclerViewFragment.newInstance();
             }
 
             @Override
@@ -92,5 +106,6 @@ public class EventsByDayActivity extends AppCompatActivity {
                 }
             });
         }
+
     }
 }

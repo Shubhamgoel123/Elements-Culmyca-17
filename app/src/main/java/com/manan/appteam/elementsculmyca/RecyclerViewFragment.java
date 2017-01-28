@@ -40,7 +40,7 @@ public class RecyclerViewFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager;
 
 
-            layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager = new LinearLayoutManager(getActivity());
 
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
@@ -49,15 +49,15 @@ public class RecyclerViewFragment extends Fragment {
         mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
 
         mAdapter = new TestRecyclerViewAdapter(mContentItems);
-
+        // Check recycler View for categories as well
         mRecyclerView.setAdapter(mAdapter);
 
-          int n=10;
+        int n = 5;
 
-            for (int i = 0; i < n; i++) {
-                mContentItems.add(new EventObject("EC17-1","Code Xplod","Coding Challenge","","","","[]","CC-04",R.drawable.coding,",")); //TODO
-            }
-            mAdapter.notifyDataSetChanged();
+        for (int i = 0; i < n; i++) {
+            mContentItems.add(new EventObject("EC17-1", "Code Xplod", "Coding Challenge", "", "", "", "[]", "CC-04", R.drawable.ic_code_black_24dp, ",")); //TODO
+        }
+        mAdapter.notifyDataSetChanged();
 
     }
 }

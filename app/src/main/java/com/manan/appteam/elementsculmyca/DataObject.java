@@ -8,7 +8,7 @@ public class DataObject {
     private String mCategoryName;
     private int mImageResourceId;
 
-    DataObject(String categoryName,int imageResourceId){
+    DataObject(String categoryName, int imageResourceId) {
         mCategoryName = categoryName;
         mImageResourceId = imageResourceId;
     }

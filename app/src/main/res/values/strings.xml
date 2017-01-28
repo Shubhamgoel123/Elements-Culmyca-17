@@ -16,5 +16,7 @@
     <string name="music">Music</string>
     <string name="dance">Dance</string>
     <string name="explore">Explore More</string>
-    <string name="sample_description">Carnivals are a haven for blitz, glamour, fashion and style.</string>
+    <string name="sample_description">Carnivals are a haven for blitz, glamour, fashion and style. Carnivals are a haven for blitz, glamour, fashion and style. Carnivals are a haven for blitz, glamour, fashion and style. Carnivals are a haven for blitz, glamour, fashion and style. Carnivals are a haven for blitz, glamour, fashion and style.</string>
+    <string name="sample_rules">1. This is a rule. \n2. This is a rule. </string>
+
 </resources>

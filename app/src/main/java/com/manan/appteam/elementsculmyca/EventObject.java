@@ -75,7 +75,7 @@ public class EventObject {
         return mEventCo;
     }
 
-    public String getEventCoNumber(){
+    public String getEventCoNumber() {
         return mEventCoNumber;
     }
 

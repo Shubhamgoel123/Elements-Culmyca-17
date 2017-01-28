@@ -19,7 +19,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.DataViewHolder> {
     private List<DataObject> listItems;
     private Context context;
 
-    public RVAdapter(List<DataObject> listItems, Context context){
+    public RVAdapter(List<DataObject> listItems, Context context) {
         this.listItems = listItems;
         this.context = context;
     }
@@ -32,9 +32,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.DataViewHolder> {
 
         DataViewHolder(View itemView) {
             super(itemView);
-            cv = (CardView)itemView.findViewById(R.id.cv);
-            categoryName = (TextView)itemView.findViewById(R.id.category_name);
-            categoryPhoto = (ImageView)itemView.findViewById(R.id.category_photo);
+            cv = (CardView) itemView.findViewById(R.id.cv);
+            categoryName = (TextView) itemView.findViewById(R.id.category_name);
+            categoryPhoto = (ImageView) itemView.findViewById(R.id.category_photo);
         }
     }
 
@@ -59,12 +59,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.DataViewHolder> {
         dataViewHolder.categoryPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"Hello"+i,Toast.LENGTH_SHORT).show();    //ClickListener TODO
+                Toast.makeText(context, "Hello" + i, Toast.LENGTH_SHORT).show();    //ClickListener TODO
             }
         });
     }
-
-
 
 
     @Override
