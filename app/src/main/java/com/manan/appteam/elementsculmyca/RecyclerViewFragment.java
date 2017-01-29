@@ -49,14 +49,20 @@ public class RecyclerViewFragment extends Fragment {
         mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
 
         mAdapter = new TestRecyclerViewAdapter(mContentItems);
-        // Check recycler View for categories as well
         mRecyclerView.setAdapter(mAdapter);
 
-        int n = 5;
 
-        for (int i = 0; i < n; i++) {
-            mContentItems.add(new EventObject("EC17-1", "Code Xplod", "Coding Challenge", "", "", "", "[]", "CC-04", R.drawable.ic_code_black_24dp, ",")); //TODO
-        }
+        //TODO Content here
+        mContentItems.add(new EventObject("EC17-1", "Code Xplod", "Coding Challenge", "", "", "", "[]", "CC-04", R.drawable.ic_code_black_24dp, ","));
+        mContentItems.add(new EventObject("EC17-1", "Ghanchakkar", "Fun Event", "", "", "", "[]", "Whole Campus", R.drawable.ic_extension_black_24dp, ","));
+        mContentItems.add(new EventObject("EC17-1", "WEIS", "tarrunum event", "", "", "", "[]", "Main Stage", R.drawable.ic_music_note_black_24dp, ","));
+        mContentItems.add(new EventObject("EC17-1", "Code Xplod", "Coding Challenge", "", "", "", "[]", "CC-04", R.drawable.ic_code_black_24dp, ","));
+        mContentItems.add(new EventObject("EC17-1", "Code Xplod", "Coding Challenge", "", "", "", "[]", "CC-04", R.drawable.ic_code_black_24dp, ","));
+        mContentItems.add(new EventObject("EC17-1", "Code Xplod", "Coding Challenge", "", "", "", "[]", "CC-04", R.drawable.ic_code_black_24dp, ","));
+        mContentItems.add(new EventObject("EC17-1", "Code Xplod", "Coding Challenge", "", "", "", "[]", "CC-04", R.drawable.ic_code_black_24dp, ","));
+
+
+
         mAdapter.notifyDataSetChanged();
 
     }

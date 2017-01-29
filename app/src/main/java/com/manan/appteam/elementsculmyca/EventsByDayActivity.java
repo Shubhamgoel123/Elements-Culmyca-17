@@ -22,13 +22,7 @@ public class EventsByDayActivity extends AppCompatActivity {
         super.setTheme(R.style.AppTheme1);
         setContentView(R.layout.activity_events_by_day);
 
-//        int position = 1;
-//        Bundle extras = getIntent().getExtras();
-//        if(extras != null) {
-//            position = extras.getInt("viewpager_position");
-//        }
-//
-//        mViewPager.getViewPager().setCurrentItem(position);
+
 
 
         setTitle("");
@@ -102,7 +96,7 @@ public class EventsByDayActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     mViewPager.notifyHeaderChanged();
-                    Toast.makeText(getApplicationContext(), "Yes, the title is clickable", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "clickable", Toast.LENGTH_SHORT).show();
                 }
             });
         }

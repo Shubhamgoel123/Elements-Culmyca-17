@@ -26,39 +26,45 @@
                 android:id="@+id/event_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="monospace"
                 android:padding="8dp"
                 android:paddingTop="12dp"
                 android:text="Code Explod"
                 android:textColor="@color/accent_color"
                 android:textSize="32sp"
                 android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event_name"
+                android:padding="8dp">
 
             <ImageView
                 android:id="@+id/location_icon"
-                android:layout_width="30dp"
-                android:layout_height="40dp"
-                android:layout_below="@+id/event_name"
-                android:src="@drawable/locationicon" />
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/locationicon"
+                android:layout_marginRight="12dp"/>
 
             <TextView
                 android:id="@+id/event_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/event_name"
                 android:layout_toRightOf="@+id/location_icon"
-                android:padding="10dp"
                 android:text="CC-04"
                 android:textSize="20sp" />
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/event_icon"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/a333"
                 android:layout_centerVertical="true"
-                android:src="@drawable/calicon" />
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="17dp"
+                android:layout_marginEnd="17dp" />
 
         </RelativeLayout>
 

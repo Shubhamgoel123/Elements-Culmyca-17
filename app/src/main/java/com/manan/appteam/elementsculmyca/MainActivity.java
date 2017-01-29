@@ -128,14 +128,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         listItems = new ArrayList<>();
 
         listItems.add(new DataObject("Photography", R.drawable.photography_image));
-        listItems.add(new DataObject("Photography", R.drawable.photography_image));
-        listItems.add(new DataObject("Photography", R.drawable.photography_image));
-        listItems.add(new DataObject("Photography", R.drawable.photography_image));
-        listItems.add(new DataObject("Photography", R.drawable.photography_image));
-        listItems.add(new DataObject("Photography", R.drawable.photography_image));
-        listItems.add(new DataObject("Photography", R.drawable.photography_image));
-        listItems.add(new DataObject("Photography", R.drawable.photography_image));
-        listItems.add(new DataObject("Photography", R.drawable.photography_image));
+        listItems.add(new DataObject("Art & Crafts", R.drawable.art_image));
+        listItems.add(new DataObject("Pre-fest", R.drawable.gaming_image));
+        listItems.add(new DataObject("Literary", R.drawable.literary_image));
+        listItems.add(new DataObject("Dance", R.drawable.dramatics_image));
+
+        listItems.add(new DataObject("Fun", R.drawable.gaming_image));
+        listItems.add(new DataObject("Music", R.drawable.music_image));
+        listItems.add(new DataObject("Quiz & Talk Show", R.drawable.art_image));
+        listItems.add(new DataObject("Technical", R.drawable.technical_image));
+        listItems.add(new DataObject("Coding", R.drawable.coding_image));
+        listItems.add(new DataObject("Dramatics", R.drawable.dramatics_image));
+        listItems.add(new DataObject("Gaming", R.drawable.gaming_image));
 
         adapter = new RVAdapter(listItems, this);
         recyclerView.setAdapter(adapter);

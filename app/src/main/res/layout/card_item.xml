@@ -8,9 +8,10 @@
         android:id="@+id/cv"
         android:layout_width="150dp"
         android:layout_height="160dp"
-        android:layout_margin="4dp"
-        card_view:cardCornerRadius="2dp"
-        card_view:cardElevation="10dp">
+        android:layout_marginLeft="4dp"
+        android:background="@drawable/border"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="16dp">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -19,9 +20,9 @@
 
             <ImageView
                 android:id="@+id/category_photo"
-                android:layout_width="150dp"
-                android:layout_height="120dp"
-                android:scaleType="fitCenter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
                 android:src="@drawable/photography_image" />  <!-- 5:4 Ratio -->
 
             <TextView
@@ -29,11 +30,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="#10000000"
+                android:background="#14151400"
                 android:gravity="center_horizontal"
                 android:padding="2dp"
                 android:text="@string/dance"
-                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
                 android:textSize="18sp" />
 
         </RelativeLayout>

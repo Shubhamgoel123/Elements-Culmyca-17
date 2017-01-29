@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
-        android:background="@color/bg_color"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <com.synnapps.carouselview.CarouselView
@@ -33,8 +33,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#c77d7d"
+            android:background="#ffff"
             android:padding="4dp"
+            android:layout_marginTop="8dp"
             android:paddingLeft="8dp"
             android:text="Categories"
             android:textColor="@color/blue"
@@ -50,7 +51,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#c77d7d"
+            android:background="#ffffff"
             android:padding="4dp"
             android:text="Events By Day"
             android:textColor="@color/blue"
